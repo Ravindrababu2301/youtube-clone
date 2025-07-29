@@ -1,7 +1,13 @@
+"use client";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-  return (
+  const MenuSlider = useSelector((store) => store.app.isMenuOpen);
+
+  // if (!MenuSlider) return null;
+
+  return MenuSlider ? (
     <div className="shadow p-2 w-48">
       <ul className="border-b-2 border-gray-300">
         <li>Home</li>
@@ -38,7 +44,7 @@ const Sidebar = () => {
         <li>Send Feedback</li>
       </ul>
     </div>
-  );
+  ) : null;
 };
 
 export default Sidebar;
